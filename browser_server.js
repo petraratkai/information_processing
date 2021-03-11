@@ -37,10 +37,9 @@ app.get('/getInfo', function(req, res) {
 
 app.get('/sendInfo', function(req, res) {
     console.log("recieved request");
-    console.log(req);
+    //console.log(req);
     //response["car1"] = req.params.x_pos * req.params.y_pos;
-    res.json(req);
-    //res.status(200).end();
+    res.status(200).end();
 });
 
 app.get('/startGame', function(req, res) {
