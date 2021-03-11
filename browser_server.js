@@ -35,11 +35,11 @@ app.get('/getInfo', function(req, res) {
     res.json(response);
 });
 
-app.get('/sendInfo', function(req, res) {
+app.post('/sendInfo', function(req, res) {
     console.log("recieved request");
-    if(response["car1"] < 399){
-        response["car1"] += 1;
-    }
+    console.log("x_pos", "y_pos");
+    console.log(req);
+    response["car1"] = req.body.x_pos * req.body.y_pos;
     res.status(200).end();
 });
 
