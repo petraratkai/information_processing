@@ -35,12 +35,7 @@ xpos= incoming["x_pos"];
    function sendToGame(name, data)
    {
       //call some function
-      axios.get("18.218.102.184:3000/sendInfo", {
-        params:{
-          x_pos:10,
-          y_pos:30
-         }
-       }).then(response => {console.log(response);});
+      axios.get("18.218.102.184:3000/sendInfo").then(response => {console.log(response);});
 
    }
 
