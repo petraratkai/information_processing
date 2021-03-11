@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 
 var app = express();
 var path = require('path');
@@ -23,6 +24,8 @@ function mapUpdate(){
 }
 
 mapInit();
+
+app.use(cors());
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
