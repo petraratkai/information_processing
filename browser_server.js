@@ -35,12 +35,12 @@ app.get('/getInfo', function(req, res) {
     res.json(response);
 });
 
-app.post('/sendInfo', function(req, res) {
+app.get('/sendInfo', function(req, res) {
     console.log("recieved request");
-    console.log("x_pos", "y_pos");
     console.log(req);
-    response["car1"] = req.body.x_pos * req.body.y_pos;
-    res.status(200).end();
+    //response["car1"] = req.params.x_pos * req.params.y_pos;
+    res.json(req);
+    //res.status(200).end();
 });
 
 app.get('/startGame', function(req, res) {
