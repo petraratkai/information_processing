@@ -40,7 +40,7 @@ xpos= incoming["x_pos"];
           x_pos:10,
           y_pos:30
          }
-       }).then(response => {console.log(response);};
+       }).then(response => {console.log(response);});
 
    }
 
