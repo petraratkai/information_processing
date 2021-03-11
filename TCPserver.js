@@ -14,7 +14,7 @@ const TCPServer = net.createServer(function (socket) {
   socket.on('data', function (data) { //incoming data
 	console.log(data + "Hello!\n" );
     var incoming = JSON.parse(data);
-    
+
 xpos= incoming["x_pos"];
     ypos=incoming["y_pos"];
     //sendToClients(socket.name + "> " + data, socket); //we write it out
@@ -34,11 +34,13 @@ xpos= incoming["x_pos"];
 
    function sendToGame(name, data)
    {
-     //call some function
-     axios.post("http://18.218.102.184:3000/sendInfo", {
-       x_pos:xpos,
-       y_pos:ypos
-     }).then(response => {console.log("sent info");});
+      //call some function
+      axios.get("18.218.102.184:3000/sendInfo", {
+        params:{
+          x_pos:10,
+          y_pos:30
+         }
+       }).then(function(response){console.log(response);};
 
    }
 
@@ -50,4 +52,3 @@ xpos= incoming["x_pos"];
 
 
 console.log("Server running at port 3000\n");
-
