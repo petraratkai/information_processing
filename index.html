@@ -55,7 +55,7 @@
             window.onload = () => {
                 console.log("window loaded");
                 var checkIfStarted = new XMLHttpRequest();
-                checkIfStarted.open("GET", "http://localhost:3000/getInfo", true);
+                checkIfStarted.open("GET", "http://18.218.102.184:3000/getInfo", true);
                 checkIfStarted.send();
 
                 checkIfStarted.onreadystatechange = function(){
@@ -75,7 +75,7 @@
             function startGame(){
                 //let server know the game should start
                 var startReq = new XMLHttpRequest();
-                startReq.open("GET", "http://localhost:3000/startGame", true);
+                startReq.open("GET", "http://18.218.102.184:3000/startGame", true);
                 startReq.send();
 
                 startReq.onreadystatechange = function() {
@@ -92,7 +92,7 @@
                 //start fetching data
                 console.log("streaming")
                 var fetchData = new XMLHttpRequest();
-                fetchData.open("GET", "http://localhost:3000/getInfo", true);
+                fetchData.open("GET", "http://18.218.102.184:3000/getInfo", true);
                 fetchData.send();
 
                 fetchData.onreadystatechange = function(){
@@ -126,7 +126,7 @@
             function endGame(){
                 clearInterval(timer);
                 var sendEndReq = new XMLHttpRequest();
-                sendEndReq.open("GET", "http://localhost:3000/endGame", true);
+                sendEndReq.open("GET", "http://18.218.102.184:3000/endGame", true);
                 sendEndReq.send();
 
                 sendEndReq.onreadystatechange = function(){
