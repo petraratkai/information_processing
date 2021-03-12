@@ -1,25 +1,20 @@
 var net = require('net');
 var axios = require('axios');
 var clients = []; //vector of sockets
+var port = 5000;
 
 const TCPServer = net.createServer(function (socket) {
   socket.name = socket.remoteAddress + ":" + socket.remotePort //other id for the client?
   clients.push(socket);
   socket.write(clients.indexOf(socket) + "\n");
-  var xpos;
-  var ypos;
 
-
-  sendToClients("terrain: " + "0\n"/*something from the game?*/); //this is sent to client
   socket.on('data', function (data) { //incoming data
-	console.log(data + "Hello!\n" );
+	  console.log("incoming data: " + data);
     var incoming = JSON.parse(data);
-
-xpos= incoming["x_pos"];
-    ypos=incoming["y_pos"];
-    //sendToClients(socket.name + "> " + data, socket); //we write it out
-    sendToGame();
+    console.log(incoming);
+    sendToGame(incoming);
   });
+
    socket.on('end', function () { //connection ended with client
      clients.splice(clients.indexOf(socket), 1); //remove client
      //write smth out
@@ -32,18 +27,23 @@ xpos= incoming["x_pos"];
      });
    }
 
-   function sendToGame(name, data)
+   function sendToGame(data)
    {
       //call some function
-      axios.get("18.218.102.184:3000/sendInfo").then(response => {console.log(response);});
-
+      console.log("Sending to game!");
+      axios.get("http://localhost:3000/sendInfo", {
+        params: {
+          x_pos: data["x_pos"],
+          y_pos: data["y_pos"]
+        }
+      })
+        .then(response => {console.log("Received Response");});
    }
-
 
  });
  TCPServer.maxConnections = 6;
- TCPServer.listen(5000);
+ TCPServer.listen(port);
  //how to input smth for the game?
 
 
-console.log("Server running at port 3000\n");
+console.log("Server running at port "+port+"\n");

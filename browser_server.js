@@ -33,8 +33,12 @@ app.get('/getInfo', function(req, res) {
 
 app.get('/sendInfo', function(req, res) {
     console.log("recieved request");
-    //console.log(req);
-    //response["car1"] = req.params.x_pos * req.params.y_pos;
+    console.log(req.query["x_pos"]);
+    console.log(req.query["y_pos"]);
+    var x_pos = req.query["x_pos"];
+    var y_pos = req.query["y_pos"];
+
+    response["car1"] = x_pos * y_pos;
     res.status(200).end();
 });
 
