@@ -42,6 +42,7 @@
             var map = document.getElementById("map");
             var row = "";
             var timer;
+            var ip = "localhost";
 
             for(var i = 0; i < 20; i++){
                 for(var j = 0; j < 20; j++){
@@ -55,7 +56,7 @@
             window.onload = () => {
                 console.log("window loaded");
                 var checkIfStarted = new XMLHttpRequest();
-                checkIfStarted.open("GET", "http://18.218.102.184:3000/getInfo", true);
+                checkIfStarted.open("GET", "http://"+ ip +":3000/getInfo", true);
                 checkIfStarted.send();
 
                 checkIfStarted.onreadystatechange = function(){
@@ -75,7 +76,7 @@
             function startGame(){
                 //let server know the game should start
                 var startReq = new XMLHttpRequest();
-                startReq.open("GET", "http://18.218.102.184:3000/startGame", true);
+                startReq.open("GET", "http://"+ ip +":3000/startGame", true);
                 startReq.send();
 
                 startReq.onreadystatechange = function() {
@@ -83,16 +84,16 @@
                         document.getElementById("gameStatus").innerHTML = "Game Started!";
                         document.getElementById("startButton").style.display = 'none';
                         document.getElementById("endButton").style.display = "block";
+                        timer = window.setInterval(streamGameData, 200);
                     }
                 }
-                 timer = window.setInterval(streamGameData, 200);
+                 
             }
 
             function streamGameData(){
                 //start fetching data
-                console.log("streaming")
                 var fetchData = new XMLHttpRequest();
-                fetchData.open("GET", "http://18.218.102.184:3000/getInfo", true);
+                fetchData.open("GET", "http://"+ ip +":3000/getInfo", true);
                 fetchData.send();
 
                 fetchData.onreadystatechange = function(){
@@ -126,7 +127,7 @@
             function endGame(){
                 clearInterval(timer);
                 var sendEndReq = new XMLHttpRequest();
-                sendEndReq.open("GET", "http://18.218.102.184:3000/endGame", true);
+                sendEndReq.open("GET", "http://"+ ip +":3000/endGame", true);
                 sendEndReq.send();
 
                 sendEndReq.onreadystatechange = function(){

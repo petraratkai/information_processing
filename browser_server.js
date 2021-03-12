@@ -23,10 +23,6 @@ function mapUpdate(){
     }
 }
 
-mapInit();
-
-app.use(cors());
-
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
@@ -44,6 +40,7 @@ app.get('/sendInfo', function(req, res) {
 
 app.get('/startGame', function(req, res) {
     response['is_running'] = true;
+    mapInit();
     res.status(200).end();
 });
 
@@ -53,4 +50,5 @@ app.get('/endGame', function(req, res){
     res.status(200).end();
 });
 
+app.use(cors());
 app.listen(3000);
