@@ -31,6 +31,8 @@
     <body>
         <div id="map"></div>
         <div id="gameInfo">
+            <label>IP:</label>
+            <input id="idInput"></input>
             <p>Devices Connected: <span id="connectedDevices">0</span>/1</p>
             <button id="startButton" onclick="startGame()">Start Game</button>
             <p><span id="gameStatus"></span></p>
@@ -42,7 +44,7 @@
             var map = document.getElementById("map");
             var row = "";
             var timer;
-            var ip = "localhost";
+            var ip = document.getElementById('idInput').value;
 
             for(var i = 0; i < 20; i++){
                 for(var j = 0; j < 20; j++){
