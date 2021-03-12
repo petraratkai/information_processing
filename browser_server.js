@@ -23,10 +23,6 @@ function mapUpdate(){
     }
 }
 
-mapInit();
-
-app.use(cors());
-
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
@@ -37,13 +33,18 @@ app.get('/getInfo', function(req, res) {
 
 app.get('/sendInfo', function(req, res) {
     console.log("recieved request");
-    //console.log(req);
-    //response["car1"] = req.params.x_pos * req.params.y_pos;
+    console.log(req.query["x_pos"]);
+    console.log(req.query["y_pos"]);
+    var x_pos = req.query["x_pos"];
+    var y_pos = req.query["y_pos"];
+
+    response["car1"] = x_pos * y_pos;
     res.status(200).end();
 });
 
 app.get('/startGame', function(req, res) {
     response['is_running'] = true;
+    mapInit();
     res.status(200).end();
 });
 
@@ -53,4 +54,5 @@ app.get('/endGame', function(req, res){
     res.status(200).end();
 });
 
+app.use(cors());
 app.listen(3000);

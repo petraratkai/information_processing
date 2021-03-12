@@ -8,6 +8,7 @@ client.connect({ port: 5000, host: process.argv[2]}, () => {
     y_pos: 30
   }
   client.write(JSON.stringify(object));
+  client.write(data);
 });
 client.on('data', (data) => {
   //console.log(data);
