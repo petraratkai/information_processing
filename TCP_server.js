@@ -1,5 +1,6 @@
-var net = require('net');
-var axios = require('axios');
+import net from 'net';
+import axios from 'axios';
+
 var clients = []; //vector of sockets
 var port = 5000;
 
@@ -38,7 +39,7 @@ const TCPServer = net.createServer(function (socket) {
           y_pos: data["y_pos"]
         }
       })
-        .then(response => {console.log("Received Response");});
+        .then(response => {console.log("Received Response"); console.log(response.data);});
    }
 
  });
