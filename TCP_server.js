@@ -33,6 +33,7 @@ const TCPServer = net.createServer(function (socket) {
       console.log("Sending to game!");
       axios.get("http://localhost:3000/sendInfo", {
         params: {
+          id: data["id"],
           x_pos: data["x_pos"],
           y_pos: data["y_pos"]
         }
