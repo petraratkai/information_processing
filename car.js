@@ -9,10 +9,25 @@ export default class Car {
     this.lives = 1;
 
   }
-  update(x, y) {
+  update(x, y, width, height) {
     console.log(x + ' ' + y);
-    this.xpos = parseInt(x) + parseInt(this.prev_xpos);
-    this.ypos = parseInt(y) + parseInt(this.prev_ypos);
+
+    if(parseInt(x) + parseInt(this.prev_xpos) >= width-1){
+      this.xpos = width-1;
+    }else if(parseInt(x) + parseInt(this.prev_xpos) <= 0){
+      this.xpos = 0;
+    }else{
+      this.xpos = parseInt(x) + parseInt(this.prev_xpos);
+    }
+    
+    if(parseInt(y) + parseInt(this.prev_ypos) >= height-1){
+      this.ypos = height-1;
+    }else if(parseInt(y) + parseInt(this.prev_ypos) <= 0){
+      this.ypos = 0;
+    }else{
+      this.ypos = parseInt(y) + parseInt(this.prev_ypos);
+    }
+
     this.prev_xpos = parseInt(this.xpos);
     this.prev_ypos = parseInt(this.ypos);
   }

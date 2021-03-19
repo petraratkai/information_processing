@@ -33,7 +33,6 @@ app.get('/sendInfo', function(req, res) {
 });
 
 app.get('/startGame', function(req, res) {
-    console.log(typeof game);
     game = new Game(Width, Height);
     game.startGame();
     timer = setInterval(function() {

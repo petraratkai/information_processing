@@ -2,18 +2,21 @@ import net from 'net';
 import axios from 'axios';
 
 var clients = []; //vector of sockets
+var gameData;
 var port = 5000;
 
 const TCPServer = net.createServer(function (socket) {
   socket.name = socket.remoteAddress + ":" + socket.remotePort //other id for the client?
   clients.push(socket);
-  socket.write(clients.indexOf(socket) + "\n");
+
+  console.log(socket.remoteAddress);
 
   socket.on('data', function (data) { //incoming data
 	  console.log("incoming data: " + data);
     var incoming = JSON.parse(data);
     console.log(incoming);
     sendToGame(incoming);
+    
   });
 
    socket.on('end', function () { //connection ended with client
@@ -39,7 +42,21 @@ const TCPServer = net.createServer(function (socket) {
           y_pos: data["y_pos"]
         }
       })
-        .then(response => {console.log("Received Response"); console.log(response.data);});
+        .then(response => {
+          console.log("Received Response"); 
+          gameData = response.data; 
+          console.log(clients);
+          // socket.write(JSON.stringify(gameData["cars"][clients.indexOf(socket)]) + "\n");
+          var index = gameData["width"] * gameData["cars"][clients.indexOf(socket)]["ypos"] + gameData["cars"][clients.indexOf(socket)]["xpos"];
+          console.log(index);
+          socket.write(JSON.stringify(gameData["map"][index]) + "\n");  
+          console.log(response.data);
+
+          if(response.data['is_running'] == false){
+            clients = [];
+          }
+        });
+        
    }
 
  });
