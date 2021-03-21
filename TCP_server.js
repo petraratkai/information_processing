@@ -3,7 +3,7 @@ import axios from 'axios';
 
 var clients = []; //vector of sockets
 var gameData;
-var port = 5000;
+var port = 8000;
 
 const TCPServer = net.createServer(function (socket) {
   socket.name = socket.remoteAddress + ":" + socket.remotePort //other id for the client?
@@ -38,7 +38,7 @@ const TCPServer = net.createServer(function (socket) {
       console.time("HTTP Request");
       axios.get("http://localhost:3000/sendInfo", {
         params: {
-          id: data["id"],
+          //id: data["id"],
           x_pos: data["x_pos"],
           y_pos: data["y_pos"]
         }
