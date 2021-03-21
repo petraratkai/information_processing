@@ -35,6 +35,7 @@ const TCPServer = net.createServer(function (socket) {
    {
       //call some function
       console.log("Sending to game!");
+      console.time("HTTP Request");
       axios.get("http://localhost:3000/sendInfo", {
         params: {
           id: data["id"],
@@ -44,13 +45,13 @@ const TCPServer = net.createServer(function (socket) {
       })
         .then(response => {
           console.log("Received Response"); 
+          console.timeEnd("HTTP Request");
           gameData = response.data; 
-          console.log(clients);
           // socket.write(JSON.stringify(gameData["cars"][clients.indexOf(socket)]) + "\n");
           var index = gameData["width"] * gameData["cars"][clients.indexOf(socket)]["ypos"] + gameData["cars"][clients.indexOf(socket)]["xpos"];
-          console.log(index);
+          //console.log(index);
           socket.write(JSON.stringify(gameData["map"][index]) + "\n");  
-          console.log(response.data);
+          //console.log(response.data);
 
           if(response.data['is_running'] == false){
             clients = [];

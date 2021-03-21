@@ -2,9 +2,75 @@
 <html>
     <head>
         <title>Grid!</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
         <style>
             body{
-                background-color: darkgrey;
+                background: rgb(32,32,64);
+                background: linear-gradient(90deg, rgba(32,32,64,1) 0%, rgba(102,24,102,1) 46%, rgba(32,32,64,1) 100%);
+				font-family: 'Roboto', sans-serif;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            /* connection box*/
+            .connect{
+                display: flex;
+                align-items: center;
+				justify-content: center;
+                border: 1px solid black;
+                width: 40vw;
+                background-color: #E1E1E1;
+                border-radius: 10px;
+            }
+            #connectButton{
+                background-color: #E1E1E1;
+                border: 1px solid #00897B;
+                color: #00897B;
+                padding: 10px 24px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 14px;
+                border-radius:  4px;
+                transition-duration: 0.4s;
+            }
+            #connectButton:hover{
+                cursor: pointer;
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                background-color: #00897B;
+                color: white;
+            }
+            #ipInput{
+                font-size: 14px;
+                padding: 5px;
+            }
+            #startButton{
+                background-color: #E1E1E1;
+                border: 1px solid #FF6F00;
+                color: #FF6F00;
+                padding: 10px 24px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 14px;
+                border-radius:  4px;
+                transition-duration: 0.4s;
+            }
+            #startButton:hover{
+                cursor: pointer;
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                background-color: #FF6F00;
+                color: white;
+            }
+
+            /* Game Screen */
+            .game{
+                display: flex;
+				flex-direction: row;
+				align-items:center;
+				justify-content: center;
             }
             .row{
                 display: flex;
@@ -17,7 +83,56 @@
                 background-color: lightgray;
                 margin: 1px;
             }
-            .player1{
+			#gameInfo{
+                background-color: #E1E1E1;
+				border: solid white 1px;
+                border-radius: 8px;
+				padding: 20px;
+				margin: 20px;
+                color: black;
+                width: 20vw;
+                text-align: center;
+			}
+            #stopButton{
+                background-color: #E1E1E1;
+                border: 1px solid #C62828;
+                color: #C62828;
+                padding: 10px 24px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 14px;
+                border-radius:  4px;
+                transition-duration: 0.4s;
+            }
+            #stopButton:hover{
+                cursor: pointer;
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                background-color: #C62828;
+                color: white;
+            }
+            #restartButton{
+                background-color: #E1E1E1;
+                border: 1px solid #673AB7;
+                color: #673AB7;
+                padding: 10px 24px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 14px;
+                border-radius:  4px;
+                transition-duration: 0.4s;
+            }
+            #restartButton:hover{
+                cursor: pointer;
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                background-color: #673AB7;
+                color: white;
+            }
+            .postGameScreen{
+                display: none;
+            }
+            .player0{
                 background: repeating-linear-gradient(
                     45deg,
                     #FF0000,
@@ -26,26 +141,190 @@
                     #eea887 8px
                 );
             }
+            .player1{
+                background: repeating-linear-gradient(
+                    45deg,
+                    #186637,
+                    #186637 4px,
+                    #6ad72e 4px,
+                    #6ad72e 8px
+                );
+            }
+            .player2{
+                background: repeating-linear-gradient(
+                    45deg,
+                    #ffab00,
+                    #ffab00 4px,
+                    #e2df18 4px,
+                    #e2df18 8px
+                );
+            }
+            .player3{
+                background: repeating-linear-gradient(
+                    45deg,
+                    #7318e2,
+                    #7318e2 4px,
+                    #b38ee0 4px,
+                    #b38ee0 8px
+                );
+            }
+            .player4{
+                background: repeating-linear-gradient(
+                    45deg,
+                    #d40084,
+                    #d40084 4px,
+                    #00b6d4 4px,
+                    #00b6d4 8px
+                );
+            }
+            .player5{
+                background: repeating-linear-gradient(
+                    45deg,
+                    #ffffff,
+                    #ffffff 4px,
+                    #000000 4px,
+                    #000000 8px
+                );
+            }
+			.playerDead{
+				background: repeating-linear-gradient(
+                    45deg,
+                    #404040,
+                    #404040 4px,
+                    #808080 4px,
+                    #808080 8px
+                );
+			}
+			table, th, td{
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+			td {
+				position: relative;
+				padding: 5px 10px;
+			}
+			
+			tr.strikeout td:before{
+				content: " ";
+				position: absolute;
+				top: 50%;
+				left: 0;
+				border-bottom: 3px solid #FF0000;
+				width: 100%;
+			}
+            @media (max-width: 1200px){
+                .connect{
+                    width: 60vw;
+                }
+                #gameInfo{
+                    width: 40vw;
+                }
+            }
+            @media (max-width: 800px){
+                .connect{
+                    width:95vw;
+                }
+				.game{
+					flex-direction: column;
+				}
+                #gameInfo{
+                    width: 80vw;
+                }
+			}
         </style>
     </head>
     <body>
-        <div id="map"></div>
-        <div id="gameInfo">
-            <label>IP:</label>
-            <input id="idInput"></input>
-            <button onclick="connect()">Connect To Game</button>
-            <p>Devices Connected: <span id="connectedDevices">0</span>/1</p>
-            <button id="startButton" onclick="startGame()">Start Game</button>
-            <p><span id="gameStatus"></span></p>
-            <button id="endButton" onclick="endGame()">End Game</button>
+    <body>
+		<div class="connect" id="connect">
+            <div style="margin: 5px; margin-top: 0px;">
+                <h1>This is the title of the game!</h1>
+                <div id="connectModule">
+                    <h3>Connect to server: </h3>
+                    <label>IP: </label>
+                    <input id="ipInput" value="localhost"></input>
+                    <button onclick="connect()" id="connectButton">Connect</button>
+                    <p style="text-align: center;"><span id="connectionMessage"></span></p>
+                </div>
+                <div id="newGameModule" style="display: none">
+                    <h3>Create a new game:</h3>
+                    <label>Map Height: </label>
+                    <input id="mapHeight" value="20" disabled></input><br><br>
+                    <label>Map Width: </label>
+                    <input id="mapWidth" value="20" disabled></input><br>
+                    <button id="startButton" onclick="startGame()">Start</button>
+                </div>
+            </div>
+		</div>
+		<div class="game" id="game" style="display: none">
+			<div id="map"></div>
+			<div id="gameInfo">
+				<div id="playerInfo">
+                    <h3>Connected to: <span id="connectedTo"></span>:3000</h3>
+					<p>Players: <span id="connectedPlayers">0</span>/6 (<span id="playersRemaining">0</span> remaining)</p>
+					<table>
+						<tr>
+							<th>Player No.</th>
+							<th>Colour</th>
+							<th>Score</th>
+                            <th>Lives</th>
+						</tr>
+						<tr id="player0Data">
+							<td>1</td>
+							<td><div id="player0Example" class="box player0"></div></td>
+							<td><span id="player0Score"></span></td>
+                            <td id="player0Lives"></td>
+						</tr>
+                        <tr id="player1Data">
+							<td>2</td>
+							<td><div id="player1Example" class="box player1"></div></td>
+							<td><span id="player1Score"></span></td>
+                            <td id="player1Lives"></td>
+						</tr>
+                        <tr id="player2Data">
+							<td>3</td>
+							<td><div id="player2Example" class="box player2"></div></td>
+							<td><span id="player2Score"></span></td>
+                            <td id="player2Lives"></td>
+						</tr>
+                        <tr id="player3Data">
+							<td>4</td>
+							<td><div id="player3Example" class="box player3"></div></td>
+							<td><span id="player3Score"></span></td>
+                            <td id="player3Lives"></td>
+						</tr>
+                        <tr id="player4Data">
+							<td>5</td>
+							<td><div id="player4Example" class="box player4"></div></td>
+							<td><span id="player4Score"></span></td>
+                            <td id="player4Lives"></td>
+						</tr>
+                        <tr id="player5Data">
+							<td>6</td>
+							<td><div id="player5Example" class="box player5"></div></td>
+							<td><span id="player5Score"></span></td>
+                            <td id="player5Lives"></td>
+						</tr>
+					</table>
+				</div>
+                <br>
+                <button id="stopButton" onclick="endGame()">End Game</button>
+                <button id="restartButton" onclick="newGame()" style="display: none">New Game</button>
+			</div>
+		<div>
+        <div class="postGameScreen">
+            <p>Hello</p>
         </div>
+        
 
         <script>
             //draw the basic map onto the screen
             var map = document.getElementById("map");
             var row = "";
             var timer;
-            var ip = document.getElementById('idInput').value;
+            var ip = document.getElementById('ipInput').value;
 
             for(var i = 0; i < 20; i++){
                 for(var j = 0; j < 20; j++){
@@ -59,7 +338,7 @@
             function connect(){
                 console.log("window loaded");
                 var checkIfStarted = new XMLHttpRequest();
-                ip = document.getElementById('idInput').value;
+                ip = document.getElementById('ipInput').value;
                 checkIfStarted.open("GET", "http://"+ ip +":3000/getInfo", true);
                 checkIfStarted.send();
 
@@ -68,9 +347,12 @@
                         var response = JSON.parse(this.responseText);
                         if(response['is_running'] == true){
                             timer = window.setInterval(streamGameData, 200);
-                            document.getElementById("gameStatus").innerHTML = "Game Started!";
-                            document.getElementById("startButton").style.display = 'none';
-                            document.getElementById("endButton").style.display = "block";
+                            document.getElementById("connect").style.display = "none";
+                            document.getElementById("game").style.display = "flex";
+                            document.getElementById("connectedTo").innerHTML = ip;
+                        }else{
+                            document.getElementById("connectModule").style.display = "none";
+                            document.getElementById("newGameModule").style.display = "block";
                         }
                     }
                 }
@@ -79,16 +361,16 @@
             //start up game sequence
             function startGame(){
                 //let server know the game should start
+                document.getElementById("connect").style.display = "none";
+                document.getElementById("game").style.display = "flex";
+                document.getElementById("connectedTo").innerHTML = ip;
                 var startReq = new XMLHttpRequest();
-                ip = document.getElementById('idInput').value;
+                ip = document.getElementById('ipInput').value;
                 startReq.open("GET", "http://"+ ip +":3000/startGame", true);
                 startReq.send();
 
                 startReq.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("gameStatus").innerHTML = "Game Started!";
-                        document.getElementById("startButton").style.display = 'none';
-                        document.getElementById("endButton").style.display = "block";
                         timer = window.setInterval(streamGameData, 200);
                     }
                 }
@@ -97,13 +379,16 @@
 
             function streamGameData(){
                 //start fetching data
+                var t0 = performance.now();
                 var fetchData = new XMLHttpRequest();
-                ip = document.getElementById('idInput').value;
+                ip = document.getElementById('ipInput').value;
                 fetchData.open("GET", "http://"+ ip +":3000/getInfo", true);
                 fetchData.send();
 
                 fetchData.onreadystatechange = function(){
                     if (this.readyState == 4 && this.status == 200) {
+                        var t1 = performance.now();
+                        console.log("Time taken: " + (t1-t0));
                         var response = JSON.parse(this.responseText);
                         if(response['is_running'] == false){
                             endGame();
@@ -114,23 +399,42 @@
 
                 function updateMap(response){
                     console.log(response);
+                    //update the map
                     for(var i = 0; i < 400; i++){
+                        document.getElementById(i).classList.remove("player0");
                         document.getElementById(i).classList.remove("player1");
+                        document.getElementById(i).classList.remove("player2");
+                        document.getElementById(i).classList.remove("player3");
+                        document.getElementById(i).classList.remove("player4");
+                        document.getElementById(i).classList.remove("player5");
                         if(response["map"][i] == 1){
                             document.getElementById(i).style.backgroundColor = 'cyan';
                         }else if(response["map"][i] == 2){
-                            document.getElementById(i).style.backgroundColor = 'orange';
+                            document.getElementById(i).style.backgroundColor = 'orange';                                                                                                                                                                                                                                                                                                                                                                                                                         
                         }else{
                             document.getElementById(i).style.backgroundColor = 'lightgrey';
                         }
-
                     }
+
+                    //update the car positions + table data
+                    document.getElementById("connectedPlayers").innerHTML = response['cars'].length;
+                    var carsAlive = 0;
                     for(var i = 0; i < response['cars'].length; i++){
                         if(response['cars'][i]['isalive'] == true){
+                            document.getElementById('player'+i+'Example').classList.remove('playerDead');
                             var index = response['width'] * response['cars'][i]['ypos'] + response['cars'][i]['xpos'];
-                            document.getElementById(index).classList.add('player1'); 
+                            document.getElementById(index).classList.add('player'+i);
+                            carsAlive++; 
+                        }else{
+                            document.getElementById('player'+i+'Example').classList.add('playerDead');
                         }
+                        document.getElementById('player'+i+'Score').innerHTML = response['cars'][i]['score'];
+                        document.getElementById('player'+i+'Lives').innerHTML = response['cars'][i]['lives'];
                     }
+                    for(var i = response['cars'].length; i < 6; i++){
+                        document.getElementById('player'+i+'Example').classList.add('playerDead');
+                    }
+                    document.getElementById("playersRemaining").innerHTML = carsAlive;
                 }
 
             }
@@ -138,18 +442,28 @@
             function endGame(){
                 clearInterval(timer);
                 var sendEndReq = new XMLHttpRequest();
-                ip = document.getElementById('idInput').value;
+                ip = document.getElementById('ipInput').value;
                 sendEndReq.open("GET", "http://"+ ip +":3000/endGame", true);
                 sendEndReq.send();
 
                 sendEndReq.onreadystatechange = function(){
                     if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("gameStatus").innerHTML = "";
-                        document.getElementById("startButton").style.display = 'block';
-                        document.getElementById("endButton").style.display = "none";
+                        document.getElementById("stopButton").style.display = "none";
+                        document.getElementById("restartButton").style.display = "inline-block";
+                        for(var i=0; i < 6; i++){
+                            document.getElementById('player'+i+'Example').classList.remove('playerDead');
+                        }
                     }
                 }
+            }
 
+            function newGame(){
+                document.getElementById("stopButton").style.display = "inline-block";
+                document.getElementById("restartButton").style.display = "none";
+                document.getElementById("connectModule").style.display = "block";
+                document.getElementById("newGameModule").style.display = "none";
+                document.getElementById("game").style.display = "none";
+                document.getElementById("connect").style.display = "flex";
             }
         </script>
     </body>

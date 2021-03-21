@@ -7,7 +7,7 @@ export default class Car {
     this.prev_ypos = 0;
     this.isalive = true;
     this.lives = 1;
-
+    this.score = 0;
   }
   update(x, y, width, height) {
     console.log(x + ' ' + y);

@@ -75,9 +75,12 @@ export default class Game {
 
     for(var i=0; i < this.cars.length; i++){
       var carPos = this.width * this.cars[i]['ypos'] + this.cars[i]["xpos"];
-      if(this.cars[i]['isalive'] && this.map[carPos] == 1){
+      if(this.cars[i]['isalive'] && this.map[carPos] == 2){
         console.log("hit object!");
+        this.cars[i]['lives'] -= 1;
         this.cars[i]['isalive'] = false;
+      }else if(this.cars[i]['isalive'] == true){
+        this.cars[i]['score'] += 10;
       }
     }
     return this.getResponse();

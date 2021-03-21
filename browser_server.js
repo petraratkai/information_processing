@@ -20,10 +20,14 @@ app.get('/', function(req, res) {
 });
 
 app.get('/getInfo', function(req, res) {
+    console.time("responsePrep");
     if(game !== undefined){
         response = game.getResponse();
+    }else{
+        response = false;
     }
     res.json(response);
+    console.timeEnd("responsePrep");
 });
 
 app.get('/sendInfo', function(req, res) {
