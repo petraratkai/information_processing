@@ -1,10 +1,10 @@
 export default class Car {
   constructor(id, xpos, ypos) {
     this.id =  id;
-    this.xpos =  0;
-    this.ypos = 0;
-    this.prev_xpos = 0;
-    this.prev_ypos = 0;
+    this.xpos =  xpos;
+    this.ypos = ypos;
+    this.prev_xpos = xpos;
+    this.prev_ypos = ypos;
     this.isalive = true;
     this.lives = 1;
     this.score = 0;
