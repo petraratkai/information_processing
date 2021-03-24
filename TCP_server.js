@@ -8,8 +8,8 @@ var port = 8000;
 const TCPServer = net.createServer(function (socket) {
   socket.name = socket.remoteAddress + ":" + socket.remotePort //other id for the client?
   clients.push(socket);
-
-  console.log(socket.remoteAddress);
+  //console.log(clients);
+  //console.log('\n' + socket.remoteAddress + ":" + socket.remotePort);
 
   socket.on('data', function (data) { //incoming data
 	  console.log("incoming data: " + data);
@@ -48,7 +48,13 @@ const TCPServer = net.createServer(function (socket) {
           console.timeEnd("HTTP Request");
           gameData = response.data; 
           // socket.write(JSON.stringify(gameData["cars"][clients.indexOf(socket)]) + "\n");
-          var index = gameData["width"] * gameData["cars"][clients.indexOf(socket)]["ypos"] + gameData["cars"][clients.indexOf(socket)]["xpos"];
+          if(typeof gameData["cars"][clients.indexOf(socket)] == undefined){
+            console.log("car undefined");
+            var index = 0;
+          }else{
+            var index = gameData["width"] * gameData["cars"][clients.indexOf(socket)]["ypos"] + gameData["cars"][clients.indexOf(socket)]["xpos"];
+          }
+          //var index = gameData["width"] * gameData["cars"][clients.indexOf(socket)]["ypos"] + gameData["cars"][clients.indexOf(socket)]["xpos"];
           //console.log(index);
           socket.write(JSON.stringify(gameData["map"][index]) + "\n");  
           //console.log(response.data);
