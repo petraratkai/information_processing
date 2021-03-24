@@ -52,13 +52,20 @@ def main():
     print(data)
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client.connect((host, port))
+    terrain = "a"
     while True:
-        data = send_on_jtag('a') # example of how to use send_on_jtag function
+        data = send_on_jtag(terrain[0]) # example of how to use send_on_jtag function
         print(data)
         if(data):
             client.send(data.encode())
-            #terrain = client.recv(1024)
+            terrain = (client.recv(1024)).decode()
+            if(terrain =="0"):
+                terrain = "a"
+            else:
+                terrain = "b"
+
             #terrain.decode()
+
             #print(terrain)
         else:
             client.close()
