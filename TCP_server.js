@@ -49,7 +49,7 @@ const TCPServer = net.createServer(function (socket) {
           gameData = response.data; 
           // socket.write(JSON.stringify(gameData["cars"][clients.indexOf(socket)]) + "\n");
           console.log(gameData["cars"][clients.indexOf(socket)]);
-          if(typeof gameData["cars"][clients.indexOf(socket)] == undefined){
+          if(typeof gameData["cars"][clients.indexOf(socket)] === 'undefined'){
             console.log("car undefined");
             var index = 0;
           }else{
