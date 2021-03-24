@@ -38,7 +38,7 @@ const TCPServer = net.createServer(function (socket) {
       //console.time("HTTP Request");
       axios.get("http://localhost:3000/sendInfo", {
         params: {
-          //id: data["id"],
+          id: clients.indexOf(socket),
           x_pos: data["x_pos"],
           y_pos: data["y_pos"]
         }
