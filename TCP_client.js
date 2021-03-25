@@ -2,7 +2,7 @@ import net from 'net';
 
 const client = new net.Socket();
 console.log(process.argv[2]);
-client.connect({ port: 5000, host: process.argv[2]}, () => {
+client.connect({ port: 8000, host: process.argv[2]}, () => {
   var object = {
     x_pos: 5,
     y_pos: 5

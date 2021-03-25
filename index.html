@@ -309,7 +309,7 @@
 						</tr>
 					</table>
 				</div>
-                <br>
+                <p>High Score - All Time: <span id="highScoreAllTime">0</span></p>
                 <button id="stopButton" onclick="endGame()">End Game</button>
                 <button id="restartButton" onclick="newGame()" style="display: none">New Game</button>
 			</div>
@@ -351,6 +351,7 @@
                             document.getElementById("connect").style.display = "none";
                             document.getElementById("game").style.display = "flex";
                             document.getElementById("connectedTo").innerHTML = ip;
+                            updateLeaderboard();
                         }else{
                             document.getElementById("connectModule").style.display = "none";
                             document.getElementById("newGameModule").style.display = "block";
@@ -365,6 +366,7 @@
                 document.getElementById("connect").style.display = "none";
                 document.getElementById("game").style.display = "flex";
                 document.getElementById("connectedTo").innerHTML = ip;
+                
                 var startReq = new XMLHttpRequest();
                 ip = document.getElementById('ipInput').value;
                 startReq.open("GET", "http://"+ ip +":3000/startGame", true);
@@ -372,15 +374,32 @@
 
                 startReq.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
+                        updateLeaderboard()
                         timer = window.setInterval(streamGameData, 200);
                     }
                 }
 
             }
 
+            function updateLeaderboard(){
+                    var req = new XMLHttpRequest();
+                    ip = document.getElementById('ipInput').value;
+                    req.open("GET", "http://"+ ip +":3000/highScores", true);
+                    req.send();
+
+                    req.onreadystatechange = function(){
+                        if(this.readyState == 4 && this.status == 200){
+                            var response = JSON.parse(this.responseText);
+                            console.log(response);
+                            document.getElementById("highScoreAllTime").innerHTML = response["allTime"];
+                        }
+                    }
+                }
+
+
             function streamGameData(){
                 //start fetching data
-                var t0 = performance.now();
+                //var t0 = performance.now();
                 var fetchData = new XMLHttpRequest();
                 ip = document.getElementById('ipInput').value;
                 fetchData.open("GET", "http://"+ ip +":3000/getInfo", true);
@@ -388,8 +407,8 @@
 
                 fetchData.onreadystatechange = function(){
                     if (this.readyState == 4 && this.status == 200) {
-                        var t1 = performance.now();
-                        console.log("Time taken: " + (t1-t0));
+                        //var t1 = performance.now();
+                        //console.log("Time taken: " + (t1-t0));
                         var response = JSON.parse(this.responseText);
                         if(response['is_running'] == false){
                             endGame();
@@ -454,6 +473,7 @@
                         for(var i=0; i < 6; i++){
                             document.getElementById('player'+i+'Example').classList.remove('playerDead');
                         }
+                        updateLeaderboard();
                     }
                 }
             }
