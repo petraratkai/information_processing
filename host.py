@@ -69,7 +69,7 @@ def main():
     datatoServer = '{"x_pos": 0, "y_pos": 0}'
     datafromServer = '{"player":4,"score":101,"terrain":2}'
     print(separateStr(datafromServer))
-    print(data)
+    #print(data)
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client.connect((host, port))
     terrain = "a"
