@@ -49,15 +49,18 @@ const TCPServer = net.createServer(function (socket) {
           gameData = response.data; 
           // socket.write(JSON.stringify(gameData["cars"][clients.indexOf(socket)]) + "\n");
           //console.log(gameData["cars"][clients.indexOf(socket)]);
+          var score;
           if(typeof gameData["cars"][clients.indexOf(socket)] === 'undefined'){
             console.log("car undefined");
             var index = 0;
+             score = 0;
           }else{
             var index = gameData["width"] * gameData["cars"][clients.indexOf(socket)]["ypos"] + gameData["cars"][clients.indexOf(socket)]["xpos"];
+            score = gameData["cars"][clients.indexOf(socket)]["score"];
           }
           //var index = gameData["width"] * gameData["cars"][clients.indexOf(socket)]["ypos"] + gameData["cars"][clients.indexOf(socket)]["xpos"];
           //console.log(index);
-          var obj = {player: clients.indexOf(socket)+1, score: gameData["cars"][clients.indexOf(socket)]["score"], terrain: gameData["map"][index]};
+          var obj = {player: clients.indexOf(socket)+1, score: score, terrain: gameData["map"][index]};
           console.log(obj);
           socket.write(JSON.stringify(obj));  
           //console.log(response.data);
