@@ -77,10 +77,11 @@ def main():
     while running:
         client.send(datatoServer.encode()) #send first data to server
         datafromServer = (cient.recv(1024)).decode()
-        if(!datafromServer):
+        if(datafromServer == False):
             running = False
-        datatoServer = send_on_jtag(datafromServer) # example of how to use send_on_jtag function
-        if(!datatoServer):
+        else:
+            datatoServer = send_on_jtag(datafromServer) # example of how to use send_on_jtag function
+        if(datatoServer==False):
             running = False
     client.close()
         #print(data)
