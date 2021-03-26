@@ -83,6 +83,7 @@ def main():
             datatoServer = send_on_jtag(separateStr(datafromServer)) # example of how to use send_on_jtag function
         if(datatoServer==False):
             running = False
+        print(separateStr(datafromServer))
     client.close()
         #print(data)
         #if(data):
