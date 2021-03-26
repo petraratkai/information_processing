@@ -21,7 +21,7 @@ export default class Game {
     this.isrunning = false;
   }
   addPlayer(id) {
-    var newcar = new Car(id, 10,20);
+    var newcar = new Car(id, 10,10);
     this.cars.push(newcar);
   }
   getPackage(data) { //package: id, xpos, ypos
