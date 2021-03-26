@@ -63,7 +63,7 @@ export default class Game {
           this.map[i] = 0;
         }else if(number < 5){
           this.map[i] = 2;
-        }else if(number < 8){
+        }else if(number < 9){
           this.map[i] = 3;
         }else{
           this.map[i] = 1;
