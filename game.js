@@ -62,7 +62,7 @@ export default class Game {
       if(this.mapColourTest == 3){
         this.mapColourTest = 0;
       }else if(this.mapColourTest == 0){
-        this.mapColourTest = 1;
+        this.mapColourTest = 2;
       }else{
         this.mapColourTest++;
       }
