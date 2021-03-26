@@ -59,12 +59,14 @@ export default class Game {
     }else{
       for(var i = 0; i<this.width; i++) {
         var number = Math.round(Math.random()*10);
-        if(number < 4){
+        if(number < 3){
           this.map[i] = 0;
-        }else if(number < 9){
-          this.map[i] = 1;
-        }else{
+        }else if(number < 5){
           this.map[i] = 2;
+        }else if(number < 8){
+          this.map[i] = 3;
+        }else{
+          this.map[i] = 1;
         }
       }
 

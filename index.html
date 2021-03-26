@@ -427,12 +427,15 @@
                         document.getElementById(i).classList.remove("player3");
                         document.getElementById(i).classList.remove("player4");
                         document.getElementById(i).classList.remove("player5");
-                        if(response["map"][i] == 1){
-                            document.getElementById(i).style.backgroundColor = 'cyan';
-                        }else if(response["map"][i] == 2){
-                            document.getElementById(i).style.backgroundColor = 'orange';                                                                                                                                                                                                                                                                                                                                                                                                                         
-                        }else{
+
+                        if(response["map"][i] == 0){
                             document.getElementById(i).style.backgroundColor = 'lightgrey';
+                        }else if(response["map"][i] == 1){
+                            document.getElementById(i).style.backgroundColor = 'orange';  
+                        }else if(response["map"][i] == 2){
+                            document.getElementById(i).style.backgroundColor = 'cyan';
+                        }else if(response["map"][i] == 3){
+                            document.getElementById(i).style.backgroundColor = '#987654';
                         }
                     }
 
