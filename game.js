@@ -12,6 +12,7 @@ export default class Game {
     }
     this.isrunning = false;
     this.rowHeight = 0;
+    this.mapColourTest = 0;
   }
   startGame(){
     this.isrunning = true;
@@ -57,20 +58,32 @@ export default class Game {
       }
       this.rowHeight--;
     }else{
+      //map test
+      if(this.mapColourTest == 3){
+        this.mapColourTest = 0;
+      }else if(this.mapColourTest == 0){
+        this.mapColourTest = 1;
+      }else{
+        this.mapColourTest++;
+      }
+      //end map test
       for(var i = 0; i<this.width; i++) {
-        var number = Math.round(Math.random()*10);
-        if(number < 3){
-          this.map[i] = 0;
-        }else if(number < 5){
-          this.map[i] = 2;
-        }else if(number < 9){
-          this.map[i] = 3;
-        }else{
-          this.map[i] = 1;
-        }
+        // var number = Math.round(Math.random()*10);
+        // if(number < 3){
+        //   this.map[i] = 0;
+        // }else if(number < 5){
+        //   this.map[i] = 2;
+        // }else if(number < 9){
+        //   this.map[i] = 3;
+        // }else{
+        //   this.map[i] = 1;
+        // }
+        this.map[i] = this.mapColourTest;
       }
 
-      this.rowHeight = Math.round(Math.random()*10 + 4)
+      //this.rowHeight = Math.round(Math.random()*10 + 4)
+      //map test
+      this.rowHeight = 20;
     }
     //cars.forEach(element => element.update()); only update cars when new data arrived
     //draw();
