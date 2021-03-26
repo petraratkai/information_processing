@@ -21,7 +21,7 @@ export default class Game {
     this.isrunning = false;
   }
   addPlayer(id) {
-    var newcar = new Car(id, 10,10);
+    var newcar = new Car(id, 10,20);
     this.cars.push(newcar);
   }
   getPackage(data) { //package: id, xpos, ypos
@@ -59,31 +59,32 @@ export default class Game {
       this.rowHeight--;
     }else{
       //map test
-      if(this.mapColourTest == 3){
-        this.mapColourTest = 0;
-      }else if(this.mapColourTest == 0){
-        this.mapColourTest = 2;
-      }else{
-        this.mapColourTest++;
-      }
+      // if(this.mapColourTest == 3){
+      //   this.mapColourTest = 0;
+      // }else if(this.mapColourTest == 0){
+      //   this.mapColourTest = 2;
+      // }else{
+      //   this.mapColourTest++;
+      // }
       //end map test
       for(var i = 0; i<this.width; i++) {
-        // var number = Math.round(Math.random()*10);
-        // if(number < 3){
-        //   this.map[i] = 0;
-        // }else if(number < 5){
-        //   this.map[i] = 2;
-        // }else if(number < 9){
-        //   this.map[i] = 3;
-        // }else{
-        //   this.map[i] = 1;
-        // }
-        this.map[i] = this.mapColourTest;
+        var number = Math.round(Math.random()*10);
+        if(number < 3){
+          this.map[i] = 0;
+        }else if(number < 5){
+          this.map[i] = 2;
+        }else if(number < 9){
+          this.map[i] = 3;
+        }else{
+          this.map[i] = 1;
+        }
+        //map test
+        //this.map[i] = this.mapColourTest;
       }
 
-      //this.rowHeight = Math.round(Math.random()*10 + 4)
+      this.rowHeight = Math.round(Math.random()*10 + 4)
       //map test
-      this.rowHeight = 20;
+      //this.rowHeight = 20;
     }
     //cars.forEach(element => element.update()); only update cars when new data arrived
     //draw();
