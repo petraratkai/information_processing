@@ -326,6 +326,7 @@
             var row = "";
             var timer;
             var ip = document.getElementById('ipInput').value;
+            var totalCars;
 
             for(var i = 0; i < 20; i++){
                 for(var j = 0; j < 20; j++){
@@ -442,6 +443,7 @@
                     //update the car positions + table data
                     document.getElementById("connectedPlayers").innerHTML = response['cars'].length;
                     var carsAlive = 0;
+                    totalCars = response['cars'].length;
                     for(var i = 0; i < response['cars'].length; i++){
                         if(response['cars'][i]['isalive'] == true){
                             document.getElementById('player'+i+'Example').classList.remove('playerDead');
@@ -488,6 +490,11 @@
                 document.getElementById("newGameModule").style.display = "none";
                 document.getElementById("game").style.display = "none";
                 document.getElementById("connect").style.display = "flex";
+
+                for(var i =0; i < totalCars; i++){
+                    document.getElementById('player'+i+'Score').innerHTML = "";
+                    document.getElementById('player'+i+'Lives').innerHTML = "";
+                }
             }
         </script>
     </body>
