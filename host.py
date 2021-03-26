@@ -76,7 +76,7 @@ def main():
     running = True
     while running:
         client.send(datatoServer.encode()) #send first data to server
-        datafromServer = (cient.recv(1024)).decode()
+        datafromServer = (client.recv(1024)).decode()
         if(datafromServer == False):
             running = False
         else:
