@@ -59,7 +59,8 @@ const TCPServer = net.createServer(function (socket) {
             score = gameData["cars"][clients.indexOf(socket)]["score"];
           }
           //var index = gameData["width"] * gameData["cars"][clients.indexOf(socket)]["ypos"] + gameData["cars"][clients.indexOf(socket)]["xpos"];
-          //console.log(index);
+          console.log('index: ' + index);
+          console.log(gameData["map"][index])
           var obj = {player: clients.indexOf(socket)+1, score: score, terrain: gameData["map"][index]};
           console.log(obj);
           socket.write(JSON.stringify(obj));  
