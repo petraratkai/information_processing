@@ -11,7 +11,7 @@ def send_on_jtag(cmd):
     # this setup will only send chars, if you want to change this,
     # you need to modify the code running on the NIOS II to have
     # the variable prompt accept multiple chars.
-    assert len(cmd)==1, "Please make the cmd a single character"
+    assert len(cmd)==6, "Please make the cmd a single character"
 
 
 
@@ -26,6 +26,24 @@ def send_on_jtag(cmd):
     vals = vals.split('<-->')
     return vals[1].strip()
     #return vals
+
+def separateStr(data):
+    result = data[10]
+    idx = 20
+    nrofdigits = 0
+    score = '' #???
+    i = 0
+    while data[idx+i].isdigit():
+        score = score + data[idx+i]
+        nrofdigits+=1
+        i += 1
+    idx +=nrofdigits
+    while nrofdigits < 4:
+        score = '0' + score
+        nrofdigits+=1
+    result = result + score
+    result = result + data[idx+11]
+    return result
 
 
 
@@ -48,27 +66,38 @@ def main():
     #host = "18.133.33.249"
     host = sys.argv[1]
     port = 8000
-    data = '{"x_pos": 13, "y_pos": -10}'
-    print(data)
+    datatoServer = '{"x_pos": 0, "y_pos": 0}'
+    datafromServer = '{"player":4,"score":101,"terrain":2}'
+    print(separateStr(datafromServer))
+    #print(data)
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client.connect((host, port))
     terrain = "a"
-    while True:
-        data = send_on_jtag(terrain[0]) # example of how to use send_on_jtag function
-        print(data)
-        if(data):
-            client.send(data.encode())
-            terrain = (client.recv(1024)).decode()
-            if(terrain =="0"):
-                terrain = "a"
-            else:
-                terrain = "b"
+    running = True
+    while running:
+        client.send(datatoServer.encode()) #send first data to server
+        datafromServer = (client.recv(1024)).decode()
+        if(datafromServer == False):
+            running = False
+        else:
+            datatoServer = send_on_jtag(separateStr(datafromServer)) # example of how to use send_on_jtag function
+        if(datatoServer==False):
+            running = False
+    client.close()
+        #print(data)
+        #if(data):
+        #    client.send(data.encode())
+        #    terrain = (client.recv(1024)).decode()
+        #    if(terrain =="0"):
+        #        terrain = "a"
+        #    else:
+        #        terrain = "b" #add 3rd terrain type
 
             #terrain.decode()
 
             #print(terrain)
-        else:
-            client.close()
+        #else:
+        #    client.close()
 
 
 if __name__ == '__main__':
