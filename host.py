@@ -11,7 +11,7 @@ def send_on_jtag(cmd):
     # this setup will only send chars, if you want to change this,
     # you need to modify the code running on the NIOS II to have
     # the variable prompt accept multiple chars.
-    assert len(cmd)==1, "Please make the cmd a single character"
+    assert len(cmd)==6, "Please make the cmd a single character"
 
 
 
@@ -73,10 +73,16 @@ def main():
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client.connect((host, port))
     terrain = "a"
-    while True:
+    running = True
+    while running:
         client.send(datatoServer.encode()) #send first data to server
         datafromServer = (cient.recv(1024)).decode()
+        if(!datafromServer):
+            running = False
         datatoServer = send_on_jtag(datafromServer) # example of how to use send_on_jtag function
+        if(!datatoServer):
+            running = False
+    client.close()
         #print(data)
         #if(data):
         #    client.send(data.encode())
