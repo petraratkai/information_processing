@@ -1,0 +1,63 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{graphicx}
+\usepackage{biblatex}
+\usepackage{parskip}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{rotating}
+\usepackage{pdflscape}
+\usepackage{amsmath}
+\usepackage{subcaption} 
+\usepackage{setspace}
+
+\lstset{%
+basicstyle=\ttfamily,
+breaklines = true,
+tabsize=2
+}
+\graphicspath{ {./Images/} }
+\addbibresource{biblography.bib}
+
+\setlength{\parskip}{1em}
+\begin{document}
+
+\begin{titlepage}
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+    \includegraphics[width = 4cm]{./Images/Logo.jpg}\\[0.5cm] 
+    
+    \center 
+	\textsc{\large Information Processing }\\[0.3cm] 
+    
+	\HRule \\[0.3cm]
+	Coursework Report
+    \HRule \\[0.7cm]
+     
+    \begin{center}
+		\underline{Authors}\\[0.1cm] Brandon Cann\\[0.1cm]
+        Champion Pongpaew\\[0.1cm]
+        David Maël\\[0.1cm]
+        Petra Ratkai\\[0.1cm]
+		Razvan Rusu\\[0.1cm]
+		Thomas van Issum\\[0.7cm]
+	\end{center} \large
+
+    \tableofcontents
+
+    \vfill % Fill the rest of the page with whitespace
+\end{titlepage}
+
+\section{System Purpose}
+
+\section{System Architecture}
+\includegraphics[width = 15cm]{Arch.PNG}
+
+\section{Performance Metrics}
+
+\section{Design Decisions}
+
+\section{Testing}
+\includegraphics[width = 15cm]{Flowchart.png}
+
+\section{Resources}
+
+\end{document}
