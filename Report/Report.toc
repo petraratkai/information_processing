@@ -1,15 +1,15 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1}\normalsize System Purpose}{1}%
+\contentsline {section}{\numberline {1}\small System Purpose}{1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}\normalsize System Architecture}{1}%
+\contentsline {section}{\numberline {2}\small System Architecture}{1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}\normalsize Performance Metrics}{2}%
+\contentsline {section}{\numberline {3}\small Performance Metrics}{2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}\normalsize Design Decisions}{4}%
+\contentsline {section}{\numberline {4}\small Design Decisions}{4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}\normalsize Testing}{4}%
+\contentsline {section}{\numberline {5}\small Testing}{4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}\normalsize Resources Utilised for DE10-Lite}{5}%
+\contentsline {section}{\numberline {6}\small Resources Utilised for DE10-Lite}{5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}\normalsize Appendix}{6}%
+\contentsline {section}{\numberline {7}\small Appendix}{6}%
