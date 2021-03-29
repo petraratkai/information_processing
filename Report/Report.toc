@@ -4,12 +4,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2}\normalsize System Architecture}{1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}\normalsize Performance Metrics}{3}%
+\contentsline {section}{\numberline {3}\normalsize Performance Metrics}{2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}\normalsize Design Decisions}{5}%
+\contentsline {section}{\numberline {4}\normalsize Design Decisions}{4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}\normalsize Testing}{6}%
+\contentsline {section}{\numberline {5}\normalsize Testing}{4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}\normalsize Resources}{7}%
+\contentsline {section}{\numberline {6}\normalsize Resources}{5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}\normalsize Appendix}{7}%
+\contentsline {section}{\numberline {7}\normalsize Appendix}{5}%
