@@ -1,9 +1,9 @@
-PWD c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report
+PWD c:/Users/Ajinizer/OneDrive/Desktop/IP/Report
 INPUT c:/texlive/2020/texmf.cnf
 INPUT c:/texlive/2020/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/Report.tex
-OUTPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/Report.log
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/Report.tex
+OUTPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/Report.log
 INPUT c:/texlive/2020/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2020/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2020/texmf-dist/tex/latex/base/size12.clo
@@ -109,9 +109,9 @@ INPUT c:/texlive/2020/texmf-dist/tex/latex/setspace/setspace.sty
 INPUT c:/texlive/2020/texmf-dist/tex/latex/setspace/setspace.sty
 INPUT c:/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 INPUT c:/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/Report.aux
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/Report.aux
-OUTPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/Report.aux
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/Report.aux
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/Report.aux
+OUTPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/Report.aux
 INPUT c:/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT c:/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT c:/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
@@ -120,14 +120,14 @@ INPUT c:/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT c:/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT c:/texlive/2020/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT c:/texlive/2020/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-OUTPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/Report.bcf
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/Report.bbl
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/Report.bbl
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/Report.bbl
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/./Images/Logo.jpg
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/./Images/Logo.jpg
-OUTPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/Report.pdf
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/./Images/Logo.jpg
+OUTPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/Report.bcf
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/Report.bbl
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/Report.bbl
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/Report.bbl
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/./Images/Logo.jpg
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/./Images/Logo.jpg
+OUTPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/Report.pdf
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/./Images/Logo.jpg
 INPUT c:/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
 INPUT c:/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
 INPUT c:/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
@@ -144,20 +144,32 @@ INPUT c:/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT c:/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT c:/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT c:/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/Report.toc
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/Report.toc
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/Report.toc
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/Report.toc
 INPUT c:/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-OUTPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/Report.toc
+INPUT c:/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+OUTPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/Report.toc
 INPUT c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/./Images/Arch.PNG
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/./Images/Arch.PNG
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/./Images/Arch.PNG
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/./Images/Flowchart.png
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/./Images/Flowchart.png
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/./Images/Flowchart.png
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/Report.aux
-INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/Report.run.xml
-OUTPUT c:/Users/Ajinizer/OneDrive/Desktop/IP Lab/Report/Report.run.xml
+INPUT c:/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/./Images/Website.png
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/./Images/Website.png
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/./Images/Website.png
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/./Images/Arch.png
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/./Images/Arch.png
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/./Images/Arch.png
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/./Images/Ping.png
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/./Images/Ping.png
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/./Images/Ping.png
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/./Images/Tick.png
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/./Images/Tick.png
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/./Images/Tick.png
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/./Images/Flowchart.png
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/./Images/Flowchart.png
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/./Images/Flowchart.png
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/Report.aux
+INPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/Report.run.xml
+OUTPUT c:/Users/Ajinizer/OneDrive/Desktop/IP/Report/Report.run.xml
 INPUT c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
+INPUT c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
